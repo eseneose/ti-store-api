@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A fullstack JavaScript web store for Total Interiors",
     "main": "index.js",
+    "type": "module",
     "dependencies": {
         "aws-sdk": "^2.702.0",
         "body-parser": "^1.19.0",
@@ -28,8 +29,7 @@
         "nodemon": "^2.0.2"
     },
     "scripts": {
-        "start": "nodemon --watch backend --exec babel-node server.js",
-        "heroku-postbuild-x": "npm run build && cd frontend && npm install && npm run build"
+        "start": "nodemon --watch backend --exec babel-node server.js"
     },
     "repository": {
         "type": "git",
