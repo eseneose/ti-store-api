@@ -7,7 +7,7 @@ import userRoute from './routes/userRoute.js';
 import productRoute from './routes/productRoute.js';
 import orderRoute from './routes/orderRoute.js';
 import uploadRoute from './routes/uploadRoute.js';
-import cors from 'cors'
+//import cors from 'cors'
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(
@@ -26,9 +26,10 @@ mongoose
     .catch((error) => console.log(error.reason));
 
 const app = express();
-app.use(cors({
-    origin: ['https://ti-store-web.onrender.com', 'http://localhost:3000']
-}));
+app.get("/server", (req, res) => res.send("gotcha!!!"))
+    /*app.use(cors({
+        origin: ['http://localhost:3000']
+    }));*/
 app.use(bodyParser.json());
 app.use('/api/uploads', uploadRoute);
 app.use('/api/users', userRoute);
@@ -42,5 +43,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(config.PORT, () => {
-    console.log('Server started at http://localhost:5000');
+    console.log(`Server started on port ${config.PORT}`);
 });

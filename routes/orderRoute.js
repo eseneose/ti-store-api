@@ -46,6 +46,7 @@ router.put("/:id", isAuth, isAdmin, async(req, res) => {
 });
 
 router.post("/", isAuth, async(req, res) => {
+    console.log("new order")
     const newOrder = new Order({
         orderItems: req.body.orderItems,
         user: req.user._id,
